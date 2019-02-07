@@ -1,2 +1,3 @@
 **/node_modules
-**/example
+**/example_proxy
+*.DS_Store

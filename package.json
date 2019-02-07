@@ -1,10 +1,11 @@
 {
   "name": "amazon-product-carousel",
   "version": "1.0.0",
-  "description": "",
+  "description": "Visual and functional clone of the amazon product ad carousel",
   "main": "index.js",
   "scripts": {
-    "test": "npm test-dev",
+    "build": "",
+    "test": "",
     "start": "nodemon server/index.js"
   },
   "author": "Pablo Frias",
