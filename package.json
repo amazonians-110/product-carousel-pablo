@@ -4,7 +4,7 @@
   "description": "Visual and functional clone of the amazon product ad carousel",
   "main": "index.js",
   "scripts": {
-    "build": "",
+    "db-build": "psql -d amazon -f amazon.schema.sql; psql amazon",
     "test": "",
     "start": "nodemon server/index.js"
   },
