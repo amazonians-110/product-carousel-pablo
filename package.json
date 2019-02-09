@@ -7,7 +7,7 @@
     "db-dev": "psql -d amazon -f amazon.schema.sql; psql amazon",
     "db-build": "psql -d amazon -f amazon.schema.sql",
     "test": "",
-    "start": "nodemon server/index.js"
+    "start": "nodemon server/server.js"
   },
   "author": "Pablo Frias",
   "license": "ISC",
