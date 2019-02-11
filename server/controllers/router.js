@@ -1,4 +1,4 @@
-const dummyData = {
+const dummyData = [{
   id: 5,
   name: 'laptop',
   image: 'http://loremflickr.com/160/160/dogs',
@@ -7,7 +7,7 @@ const dummyData = {
   is_prime: 't',
   category: 'electronics',
   manufacturer: 'Acer',
-};
+}];
 
 module.exports = {
   post: (req, res) => {
@@ -15,7 +15,7 @@ module.exports = {
   },
 
   get: (req, res) => {
-    const { productId } = req.params;
-    res.status(200).send(productId, dummyData);
+    // const { productId } = req.params;
+    res.status(200).send(dummyData);
   },
 };

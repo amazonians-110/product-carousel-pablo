@@ -1,4 +1,5 @@
 // eslint-disable-next-line import/extensions
+
 import Carousel from './modules/Carousel.jsx';
 
 const React = require('react');
