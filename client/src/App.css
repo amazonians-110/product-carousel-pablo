@@ -1,0 +1,28 @@
+
+.section {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px rgba(140, 140, 140, 0.8) solid;
+  border-top: 1px rgba(140, 140, 140, 0.8) solid;
+  margin: 0px 5px;
+  padding: 0px 5px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px 0px 20px 0px;
+}
+
+.title {
+  font: 1.2em verdana;
+  font-weight: 700;
+  color: rgb(179, 78, 1);
+  margin: 0px;
+}
+
+.pages {
+  font: 0.8em normal Arial, sans-serif;
+  margin: 0px;
+}
