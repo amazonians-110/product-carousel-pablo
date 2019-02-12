@@ -12,23 +12,20 @@
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/amazonians-110/add_to_cart-chris
+  - https://github.com/amazonians-110/product-reviews-victor
+  - https://github.com/amazonians-110/product-gallery-summary
 
 ## Table of Contents
 
 1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
+2. [Requirements](#requirements)
+3. [Development](#development)
 
 ## Usage
 
 > To run this code on your computer you will need to:
-  1) have psql version 11.1 installed on your computer
-  --> 'brew install postgresql' on mac ()
-  2) run 'npm run db-build' from the command line
+  1) run 'npm run db-build' from the command line
   -------->->->->->->->->->->->-> FILL ME IN
 
 ## Requirements
@@ -47,6 +44,6 @@ From within the root directory:
 ```sh
 npm install -g webpack
 npm i
-brew install psql
+brew install psql@11.1 (may work with other versions)
 ```
 
