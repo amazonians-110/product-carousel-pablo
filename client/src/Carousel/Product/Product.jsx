@@ -1,32 +1,35 @@
 import React from 'react';
 import product from './Product.css';
 
+const primeSprite = 'https://m.media-amazon.com/images/G/01/AmazonServices/Site/US/Product/FBA/small-and-light-prime-logo._V509606070_.png';
+
 const Product = ({
   product: {
     name, image, avgReview, price, isPrime,
   },
 }) => (
   <div className={product.column}>
-    <img src={image} alt="product was here" className={product.image} />
-    <h4>{name}</h4>
+    <img src={image} alt="product was here" className={product.ad_image} />
+    <h4 className={product.name}>{name}</h4>
     <div className={product.row}>
-      <div className="stars">
+      <span className={product.stars}>
         <span>&#11088;</span>
         <span>&#11088;</span>
         <span>&#11088;</span>
         <span>&#11088;</span>
         <span>&#11088;</span>
-      </div>
-      <div>
+      </span>
+      <span className={product.review_count}>
         4,345
-      </div>
+      </span>
     </div>
     <div className={product.row}>
-      <div className="price">{`$${price}`}</div>
-      {isPrime === 't'
-        ? <div className="prime"><em>PRIME</em></div>
-        : <div className="not_prime">NOT PRIME</div>
-          }
+      <span className={product.price}>{`$${price}`}</span>
+      <span>
+        {isPrime === 't'
+          ? <img className={product.prime} src={primeSprite} alt="" />
+          : null }
+      </span>
     </div>
   </div>
 );

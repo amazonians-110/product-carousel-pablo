@@ -1,14 +1,38 @@
 .column {
   display: flex;
   flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .row {
   display: flex;
   flex-direction: row;
+  justify-content: normal;
 }
 
-.image {
+.ad_image {
   width: 160px;
   height: 160px;
+}
+
+.name {
+  color: rgb(39, 64, 164);
+}
+
+.stars {
+  margin: auto 0px;
+}
+
+.review_count {
+  margin: auto 0px;
+  color: rgb(39, 64, 164);
+}
+
+.price {
+  color: maroon;
+}
+
+.prime {
+  margin-left: 0.1em;
+  height: 1em;
 }
