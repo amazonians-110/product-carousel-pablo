@@ -6,8 +6,14 @@ module.exports = {
   },
 
   get: (req, res) => {
-    // const { productId } = req.params;
-    res.status(200).send(dummyData);
+    const { productId } = req.params;
+    db.select('*').from('products').where('product_id', productId)
+      .then((data) => {
+        res.status(200).send(data);
+      })
+      .catch((err) => {
+        res.status(400).send(err);
+      });
   },
 
   dbtest: (req, res) => {
@@ -15,15 +21,3 @@ module.exports = {
     res.status(200).send(dummyData);
   },
 };
-
-
-const dummyData = [{
-  id: 5,
-  name: 'laptop',
-  image: 'http://loremflickr.com/160/160/dogs',
-  price: '99.99',
-  avg_review: '3.7',
-  is_prime: 't',
-  category: 'electronics',
-  manufacturer: 'Acer',
-}];
