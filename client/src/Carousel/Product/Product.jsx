@@ -5,7 +5,7 @@ const primeSprite = 'https://m.media-amazon.com/images/G/01/AmazonServices/Site/
 
 const Product = ({
   product: {
-    name, image, avgReview, price, isPrime,
+    name, image, avgReview, price, isPrime, reviewCount,
   },
 }) => (
   <div className={product.column}>
@@ -19,14 +19,14 @@ const Product = ({
         <span>&#11088;</span>
         <span>&#11088;</span>
       </span>
-      <span className={product.review_count}>
-        4,345
+      <span className={product.reviewCount}>
+        {reviewCount}
       </span>
     </div>
     <div className={product.row}>
       <span className={product.price}>{`$${price}`}</span>
       <span>
-        {isPrime === 't'
+        {isPrime === true
           ? <img className={product.prime} src={primeSprite} alt="" />
           : null }
       </span>
