@@ -1,4 +1,4 @@
-const db = require('./database.js');
+const db = require('../database/');
 
 module.exports = {
   post: (req, res) => {
@@ -11,7 +11,7 @@ module.exports = {
   },
 
   dbtest: (req, res) => {
-    db.
+    // db
     res.status(200).send(dummyData);
   },
 };
