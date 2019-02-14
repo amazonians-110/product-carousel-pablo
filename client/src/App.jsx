@@ -19,13 +19,14 @@ class App extends React.Component {
   componentWillMount() {
     this.fetchProducts()
       .then(() => {
+        this.updateWidth();
         window.addEventListener('resize', this.updateWidth.bind(this));
       });
   }
 
   updateWidth() {
     const width = Math.max(window.innerWidth, 1000);
-    const productsPerPage = Math.floor((width - 200) / 200);
+    const productsPerPage = Math.floor((width - 100) / 170);
     this.setState(({ products }) => ({
       productsPerPage,
       pages: Math.ceil(products.length / productsPerPage),
