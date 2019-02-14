@@ -10,9 +10,8 @@ const app = express();
 
 app.use(express.static(`${__dirname}/../client/dist`));
 
-app.get('/category/product/:productId', router.get);
+// app.get('/category/:productId/:relationship', router.read);
 
-app.get('/test', router.dbtest);
-// app.post('', router.post)
+app.get('/category/:productId/', router.readDefault);
 
 app.listen(PORT);
