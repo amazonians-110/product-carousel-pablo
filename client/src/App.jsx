@@ -10,25 +10,41 @@ class App extends React.Component {
     this.state = {
       relationship: 'Related items',
       products: [],
+      pageNumber: 1,
+      pages: null,
+      productsPerPage: 4,
     };
   }
 
-  componentDidMount() {
-    this.fetchProducts();
+  componentWillMount() {
+    this.fetchProducts()
+      .then(() => {
+        window.addEventListener('resize', this.updateWidth.bind(this));
+      });
+  }
+
+  updateWidth() {
+    const width = Math.max(window.innerWidth, 1000);
+    const productsPerPage = Math.floor((width - 200) / 200);
+    this.setState(({ products }) => ({
+      productsPerPage,
+      pages: Math.ceil(products.length / productsPerPage),
+    }));
   }
 
   fetchProducts() {
-    axios.get('/category/05')
+    return axios.get('/category/05')
       .then(({ data }) => {
         this.setState({ products: data });
-      })
-      .catch((err) => {
-        console.log(err);
       });
   }
 
   render() {
-    const { products, relationship } = this.state;
+    const {
+      products, relationship, pageNumber, pages, productsPerPage,
+    } = this.state;
+    const firstIndex = productsPerPage * pageNumber;
+    const lastIndex = productsPerPage * (pageNumber + 1);
     return (
       <section className={app.section}>
         <header className={app.header}>
@@ -36,10 +52,10 @@ class App extends React.Component {
             {relationship}
           </h4>
           <h4 className={app.pages}>
-            Page 1 of 2
+            {`Page ${pageNumber} of ${pages}`}
           </h4>
         </header>
-        <Carousel products={products} />
+        <Carousel products={products.slice(firstIndex, lastIndex)} />
       </section>
     );
   }

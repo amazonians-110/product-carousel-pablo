@@ -2,6 +2,7 @@
 .section {
   display: flex;
   flex-direction: column;
+  min-width: 1000px;
   border-bottom: 1px rgba(140, 140, 140, 0.8) solid;
   border-top: 1px rgba(140, 140, 140, 0.8) solid;
   margin: 0px 5px;
@@ -18,7 +19,7 @@
 .title {
   font: 1.2em verdana;
   font-weight: 700;
-  color: rgb(179, 78, 1);
+  color: #C60;
   margin: 0px;
 }
 
