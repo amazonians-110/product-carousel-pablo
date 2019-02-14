@@ -20,7 +20,7 @@ db.schema.dropTableIfExists('products')
       const product = {};
       product.name = faker.commerce.productName();
       product.price = faker.commerce.price();
-      product.avg_review = Math.floor(Math.random() * 50) / 10;
+      product.avg_review = Math.floor(Math.random() * 40 + 10) / 10;
       product.review_count = Math.floor(Math.random() * 5000);
       product.is_prime = faker.random.boolean();
       product.category = faker.commerce.department();
