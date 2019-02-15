@@ -13,7 +13,7 @@ class App extends React.Component {
       products: [],
       pageNumber: 1,
       pages: null,
-      productsPerPage: 4,
+      productsPerPage: null,
     };
   }
 
@@ -28,14 +28,18 @@ class App extends React.Component {
   updateWidth() {
     const width = Math.max(window.innerWidth, 1000);
     const productsPerPage = Math.floor((width - 100) / 170);
-    this.setState(({ products }) => {
-      let x = 0;
-      x = 1;
-      // if page was widened too far and current page is greater than total pages
-      // update page to match the total pages
+    this.setState(({ pageNumber, products }) => {
+      const pages = Math.ceil(products.length / productsPerPage);
+      if (pageNumber > pages) {
+        return {
+          productsPerPage,
+          pages,
+          pageNumber: pages,
+        };
+      }
       return {
         productsPerPage,
-        pages: Math.ceil(products.length / productsPerPage),
+        pages,
       };
     });
   }
@@ -48,28 +52,32 @@ class App extends React.Component {
   }
 
   handleScroll(direction) {
-    console.log(direction);
-    // if direction is true
-    // --> if page = pages, set to 1
-    // otherwise increment page
-
-    // if direction is false
-    // --> if page is 1, set to pages
-    // --> otherwise, deincrement page
+    this.setState(({ pages, pageNumber }) => {
+      if (direction === 'right') {
+        if (pageNumber === pages) {
+          return { pageNumber: 1 };
+        }
+        return { pageNumber: pageNumber + 1 };
+      }
+      if (pageNumber === 1) {
+        return { pageNumber: pages };
+      }
+      return { pageNumber: pageNumber - 1 };
+    });
   }
 
-  handleClick(e) {
-    console.log(e);
-    // harvest id value from element
-    // navigate to the correct path
-  }
+  // handleClick(e) {
+  //   console.log(e);
+  //   // harvest id value from element
+  //   // navigate to the correct path
+  // }
 
   render() {
     const {
       products, relationship, pageNumber, pages, productsPerPage,
     } = this.state;
-    const firstIndex = productsPerPage * pageNumber;
-    const lastIndex = productsPerPage * (pageNumber + 1);
+    const firstIndex = productsPerPage * (pageNumber - 1);
+    const lastIndex = productsPerPage * pageNumber;
     return (
       <section className={app.section}>
         <header className={app.header}>
