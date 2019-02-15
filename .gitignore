@@ -2,3 +2,4 @@
 **/example_proxy
 *.DS_Store
 **bundle.js
+**/__snapshots__
