@@ -6,7 +6,7 @@ import app from './App.css';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
+    // this.handleClick = this.handleClick.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
     this.state = {
       relationship: 'Related items',

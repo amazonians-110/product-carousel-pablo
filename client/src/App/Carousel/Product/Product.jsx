@@ -12,10 +12,10 @@ const Product = ({
   },
 }) => (
   <div className={product.column}>
-    <a href={`localhost:8000/${category}/${id}`}>
+    <a href={`/${category}/${id}`}>
       <img src={image} alt="product was here" className={product.ad_image} />
     </a>
-    <a href={`localhost:8000/${category}/${id}`} className={product.name}>{name}</a>
+    <a href={`/${category}/${id}`} className={product.name}>{name}</a>
     <div className={product.row}>
       <Rating avgReview={avgReview} />
       <span className={product.review_count}>
