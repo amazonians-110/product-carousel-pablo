@@ -1,4 +1,4 @@
-# Project Name
+# Product Advertisement Carousels
 
 > This service aims to clone the visual and functional style of Amazon.com's 
   product carousel modules. The key features to be created are:

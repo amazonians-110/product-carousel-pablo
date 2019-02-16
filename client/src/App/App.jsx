@@ -6,12 +6,14 @@ import app from './App.css';
 class App extends React.Component {
   constructor(props) {
     super(props);
+    // this.handleClick = this.handleClick.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
     this.state = {
       relationship: 'Related items',
       products: [],
       pageNumber: 1,
       pages: null,
-      productsPerPage: 4,
+      productsPerPage: null,
     };
   }
 
@@ -26,10 +28,20 @@ class App extends React.Component {
   updateWidth() {
     const width = Math.max(window.innerWidth, 1000);
     const productsPerPage = Math.floor((width - 100) / 170);
-    this.setState(({ products }) => ({
-      productsPerPage,
-      pages: Math.ceil(products.length / productsPerPage),
-    }));
+    this.setState(({ pageNumber, products }) => {
+      const pages = Math.ceil(products.length / productsPerPage);
+      if (pageNumber > pages) {
+        return {
+          productsPerPage,
+          pages,
+          pageNumber: pages,
+        };
+      }
+      return {
+        productsPerPage,
+        pages,
+      };
+    });
   }
 
   fetchProducts() {
@@ -39,12 +51,33 @@ class App extends React.Component {
       });
   }
 
+  handleScroll(direction) {
+    this.setState(({ pages, pageNumber }) => {
+      if (direction === 'right') {
+        if (pageNumber === pages) {
+          return { pageNumber: 1 };
+        }
+        return { pageNumber: pageNumber + 1 };
+      }
+      if (pageNumber === 1) {
+        return { pageNumber: pages };
+      }
+      return { pageNumber: pageNumber - 1 };
+    });
+  }
+
+  // handleClick(e) {
+  //   console.log(e);
+  //   // harvest id value from element
+  //   // navigate to the correct path
+  // }
+
   render() {
     const {
       products, relationship, pageNumber, pages, productsPerPage,
     } = this.state;
-    const firstIndex = productsPerPage * pageNumber;
-    const lastIndex = productsPerPage * (pageNumber + 1);
+    const firstIndex = productsPerPage * (pageNumber - 1);
+    const lastIndex = productsPerPage * pageNumber;
     return (
       <section className={app.section}>
         <header className={app.header}>
@@ -55,7 +88,11 @@ class App extends React.Component {
             {`Page ${pageNumber} of ${pages}`}
           </h4>
         </header>
-        <Carousel products={products.slice(firstIndex, lastIndex)} />
+        <Carousel
+          products={products.slice(firstIndex, lastIndex)}
+          click={this.handleClick}
+          scroll={this.handleScroll}
+        />
       </section>
     );
   }
