@@ -1,12 +1,15 @@
 const express = require('express');
-// const path = require('path');
+const morgan = require('morgan');
+const cors = require('cors');
 const router = require('./controllers/router.js');
 
 const PORT = 3007;
 
 const app = express();
 
-// app.use(some kind of middleware);
+app.use(morgan('combined'));
+
+app.use(cors());
 
 app.use(express.static(`${__dirname}/../client/dist`));
 

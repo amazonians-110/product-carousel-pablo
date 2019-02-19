@@ -45,7 +45,7 @@ class App extends React.Component {
   }
 
   fetchProducts() {
-    return axios.get('localhost:3007/category/05')
+    return axios.get('http://127.0.0.1:3007/category/05')
       .then(({ data }) => {
         this.setState({ products: data });
       });
