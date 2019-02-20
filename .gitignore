@@ -3,3 +3,4 @@
 **/__snapshots__
 *.DS_Store
 **bundle.js
+*config.js

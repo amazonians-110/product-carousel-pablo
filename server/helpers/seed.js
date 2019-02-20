@@ -1,5 +1,5 @@
 const faker = require('faker');
-const db = require('../database');
+const db = require('../database/config.js');
 
 db.schema.dropTableIfExists('products')
   .then(() => db.schema.createTable('products', (table) => {

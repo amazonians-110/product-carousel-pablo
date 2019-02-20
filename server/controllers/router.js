@@ -1,4 +1,4 @@
-const db = require('../database/');
+const db = require('../database/config.js');
 
 const randomRelations = (num, limit) => {
   const results = [];
