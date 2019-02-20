@@ -25,14 +25,7 @@ db.schema.dropTableIfExists('products')
       product.is_prime = faker.random.boolean();
       product.category = faker.commerce.department();
       product.manufacturer = faker.company.companyName();
-      const rand = Math.random();
-      if (rand < 0.34) {
-        product.image = faker.image.food();
-      } else if (rand < 0.67) {
-        product.image = faker.image.technics();
-      } else {
-        product.image = faker.image.image();
-      }
+      product.image = `https://s3-us-west-1.amazonaws.com/amazon-product-carousel-images/products/item-${i + 1}.png`;
       rows.push(product);
     }
     return db('products').insert(rows);
