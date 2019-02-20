@@ -25,8 +25,9 @@
 ## Usage
 
 > To run this code on your computer you will need to:
-  1) run 'npm run db-build' from the command line
-  -------->->->->->->->->->->->-> FILL ME IN
+  1) run 'npm i' from the command line
+  2) to set up the database, run 'createdb amazon' and then 'npm run seed' 
+  3) run 'npm build' from the command line
 
 ## Requirements
 
