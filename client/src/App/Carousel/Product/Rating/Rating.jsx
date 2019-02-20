@@ -27,10 +27,16 @@ const Rating = ({ avgReview }) => {
   for (let i = 0; i < Math.floor(fullStars); i += 1) {
     stars.push(
       <svg height="20" width="20">
+        <defs>
+          <linearGradient id="star-fill" gradientTransform="rotate(90)">
+            <stop offset="25%" stopColor="#ffce00" />
+            <stop offset="100%" stopColor="#ffa700" />
+          </linearGradient>
+        </defs>
         <path
           d={starPoints}
-          fill="#f4b03e"
-          stroke="#a98143"
+          fill="url(#star-fill"
+          stroke="#a8863c"
           strokeWidth="1"
         />
       </svg>,
@@ -40,14 +46,20 @@ const Rating = ({ avgReview }) => {
   for (let i = 0; i < halfStars; i += 1) {
     stars.push(
       <svg height="20" width="20">
+        <defs>
+          <linearGradient id="star-fill" gradientTransform="rotate(90)">
+            <stop offset="25%" stopColor="#ffce00" />
+            <stop offset="100%" stopColor="#ffa700" />
+          </linearGradient>
+        </defs>
         <path
           d={halfStarPoints}
-          fill="#f4b03e"
+          fill="url(#star-fill"
         />
         <path
           d={starPoints}
           fill="none"
-          stroke="#a98143"
+          stroke="#a8863c"
           strokeWidth="1"
 
         />
@@ -61,7 +73,7 @@ const Rating = ({ avgReview }) => {
         <path
           d={starPoints}
           fill="none"
-          stroke="#a98143"
+          stroke="#a8863c"
           strokeWidth="1"
         />
       </svg>,

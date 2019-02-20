@@ -13,7 +13,9 @@ const Product = ({
 }) => (
   <div className={product.column}>
     <a href={`/${category}/${id}`}>
-      <div style={{ backgroundImage: image }} alt="product was here" className={product.ad_image} />
+      <div className={product.ad_image}>
+        <div style={{ background: `url(${image}`, backgroundSize: 'cover', height: '160px' }} alt="product was here" />
+      </div>
     </a>
     <a href={`/${category}/${id}`} className={product.name}>{name}</a>
     <div className={product.row}>
