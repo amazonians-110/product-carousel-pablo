@@ -7,7 +7,7 @@ const PORT = 3007;
 
 const app = express();
 
-app.use(morgan('combined'));
+app.use(morgan('tiny'));
 
 app.use(cors());
 

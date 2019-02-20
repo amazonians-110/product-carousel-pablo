@@ -13,7 +13,7 @@ const Product = ({
 }) => (
   <div className={product.column}>
     <a href={`/${category}/${id}`}>
-      <img src={image} alt="product was here" className={product.ad_image} />
+      <div style={{ backgroundImage: image }} alt="product was here" className={product.ad_image} />
     </a>
     <a href={`/${category}/${id}`} className={product.name}>{name}</a>
     <div className={product.row}>
