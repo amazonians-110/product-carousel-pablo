@@ -4,10 +4,11 @@
   "description": "Visual and functional clone of the amazon product ad carousel",
   "main": "index.js",
   "scripts": {
+    "postinstall": "webpack -p",
     "seed": "createdb amazon; node server/helpers/seed.js && echo 'database built'",
     "dev-build": "webpack -d --watch",
-    "start": "nodemon server/server.js",
-    "build": "webpack -p && npm start",
+    "start": "nodemon",
+    "build": "webpack -p && node index.js",
     "test": "jest"
   },
   "author": "Pablo Frias",
@@ -40,6 +41,7 @@
     "axios": "^0.18.0",
     "cors": "^2.8.5",
     "express": "^4.16.4",
+    "html-webpack-plugin": "^3.2.0",
     "knex": "^0.16.3",
     "morgan": "^1.9.1",
     "nodemon": "^1.18.9",

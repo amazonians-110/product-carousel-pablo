@@ -1,9 +1,11 @@
-const path = require('path');
+const webpack = require('webpack');
+const HtmlPlugin = require('html-webpack-plugin');
+// const path = require('path');
 
 module.exports = {
-  entry: `${__dirname}/client/src/index.jsx`,
+  entry: `${__dirname}/src/index.jsx`,
   output: {
-    path: path.resolve(__dirname, './client/dist'),
+    path: `${__dirname}/dist`,
     filename: 'bundle.js',
   },
   module: {
@@ -35,4 +37,8 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new webpack.ProgressPlugin(),
+    new HtmlPlugin({ template: './src/index.html' }),
+  ],
 };

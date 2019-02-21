@@ -1,7 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
-const router = require('./controllers/router.js');
+const router = require('./server/controllers/router.js');
 
 const PORT = 3007;
 
@@ -11,7 +11,7 @@ app.use(morgan('tiny'));
 
 app.use(cors());
 
-app.use(express.static(`${__dirname}/../client/dist`));
+app.use(express.static(`${__dirname}/dist`));
 
 // app.get('/category/:productId/:relationship', router.read);
 

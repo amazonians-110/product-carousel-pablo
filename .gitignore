@@ -1,6 +1,5 @@
 **/node_modules
 **/example_proxy
 **/__snapshots__
+**/dist
 *.DS_Store
-**bundle.js
-*config.js
