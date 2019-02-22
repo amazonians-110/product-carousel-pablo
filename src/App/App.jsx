@@ -50,6 +50,9 @@ class App extends React.Component {
     return axios.get(`/category/${productNumber || 11}`)
       .then(({ data }) => {
         this.setState({ products: data });
+      })
+      .catch(() => {
+        this.setState({ products: [] });
       });
   }
 

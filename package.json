@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "webpack -p",
-    "seed": "createdb amazon; node server/helpers/seed.js && echo 'database built'",
+    "seed": "node server/helpers/seed.js && echo 'database built'",
     "dev-build": "webpack -d --watch",
     "start": "nodemon",
     "build": "webpack -p && node index.js",

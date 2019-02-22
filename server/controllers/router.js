@@ -36,7 +36,7 @@ module.exports = {
         res.status(200).send(converted);
       })
       .catch((err) => {
-        res.status(400).send(err);
+        res.status(503).send(err);
       });
   },
 
