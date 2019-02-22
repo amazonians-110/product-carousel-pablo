@@ -13,8 +13,18 @@ app.use(cors());
 
 app.use(express.static(`${__dirname}/dist`));
 
-// app.get('/category/:productId/:relationship', router.read);
+app.get('/api', (request, response) => {
+  response.sendFile(`${__dirname}/dist/bundle.js`);
+});
 
-app.get('/category/:productId/', router.readDefault);
+app.get('/api/bundle', (req, res) => {
+  res.sendFile(`${__dirname}/dist/bundle.js`);
+});
+
+app.get('/api/product/:productId/', router.readRelationship);
+
+app.get('*', (req, res) => {
+  res.sendFile(`${__dirname}/dist/index.html`);
+});
 
 app.listen(PORT);

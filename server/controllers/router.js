@@ -27,7 +27,8 @@ const convertSQLtoJS = (product) => {
 
 module.exports = {
   // add search by category
-  readDefault: (req, res) => {
+  readRelationship: (req, res) => {
+    console.log('querying database');
     const relatedProducts = randomRelations(15, 100);
     db.select('*').from('products').whereIn('product_id', relatedProducts)
       .then((data) => {
@@ -36,6 +37,7 @@ module.exports = {
         res.status(200).send(converted);
       })
       .catch((err) => {
+        console.log(err);
         res.status(503).send(err);
       });
   },

@@ -47,7 +47,7 @@ class App extends React.Component {
   fetchProducts() {
     const { pathname } = window.location;
     const productNumber = pathname.split('/').pop();
-    return axios.get(`/category/${productNumber || 11}`)
+    return axios.get(`http://ec2-18-217-74-134.us-east-2.compute.amazonaws.com/api/product/${productNumber || 11}`)
       .then(({ data }) => {
         this.setState({ products: data });
       })
