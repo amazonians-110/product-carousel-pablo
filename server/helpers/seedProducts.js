@@ -1,8 +1,8 @@
 const faker = require('faker');
-const db = require('../database/config.js');
+const database = require('../../config.js');
 
-db.schema.dropTableIfExists('products')
-  .then(() => db.schema.createTable('products', (table) => {
+database.schema.dropTableIfExists('products')
+  .then(() => database.schema.createTable('products', (table) => {
     table.increments('product_id');
     table.string('name');
     table.string('image');
@@ -28,7 +28,7 @@ db.schema.dropTableIfExists('products')
       product.image = `https://s3-us-west-1.amazonaws.com/amazon-product-carousel-images/products/item-${i + 1}.png`;
       rows.push(product);
     }
-    return db('products').insert(rows);
+    return database('products').insert(rows);
   })
   .then(() => {
     process.exit();

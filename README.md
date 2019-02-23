@@ -26,27 +26,17 @@
 
 > To run this code on your computer you will need to:
   1) run 'npm i' from the command line
-  2) in the database folder, create a config file from template using your
-      own pgsql password (if applicable).
-  3) to set up the database, run 'createdb amazon' and then 'npm run seed' 
-  4) run 'npm build' from the command line
-
+  2) run 'npm start'
+  
 ## Requirements
 
 An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 - Node 6.13.0
-- etc
+- npm 6.4.1
 
 ## Development
 
 ### Installing Dependencies
 
-From within the root directory:
-
-```sh
-npm install -g webpack
-npm i
-brew install psql@11.1 (may work with other versions)
-```
-
+none

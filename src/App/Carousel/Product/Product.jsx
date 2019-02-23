@@ -9,7 +9,7 @@ const concatUrl = id => `https://res.cloudinary.com/dcywbu46z/image/upload/w_160
 
 const Product = ({
   product: {
-    id, name, image, avgReview, price, isPrime, reviewCount,
+    id, name, avgReview, price, isPrime, reviewCount,
   },
 }) => (
   <div className={product.column}>
