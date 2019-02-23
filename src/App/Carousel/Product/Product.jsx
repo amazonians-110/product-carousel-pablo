@@ -8,16 +8,16 @@ const primeSprite = 'https://m.media-amazon.com/images/G/01/AmazonServices/Site/
 const Product = ({
   // click,
   product: {
-    id, name, image, avgReview, price, isPrime, reviewCount, category,
+    id, name, image, avgReview, price, isPrime, reviewCount,
   },
 }) => (
   <div className={product.column}>
-    <a href={`/${category}/${id}`}>
+    <a href={`/products/${id}`}>
       <div className={product.ad_image}>
         <div style={{ background: `url(${image}`, backgroundSize: 'cover', height: '160px' }} alt="product was here" />
       </div>
     </a>
-    <a href={`/${category}/${id}`} className={product.name}>{name}</a>
+    <a href={`/products/${id}`} className={product.name}>{name}</a>
     <div className={product.row}>
       <Rating avgReview={avgReview} />
       <span className={product.review_count}>

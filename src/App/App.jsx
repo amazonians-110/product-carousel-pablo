@@ -2,11 +2,11 @@ import React from 'react';
 import axios from 'axios';
 import Carousel from './Carousel/Carousel.jsx';
 import app from './App.css';
+// import { section, header, pages, title } from './App.css';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    // this.handleClick = this.handleClick.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
     this.state = {
       relationship: 'Related items',
@@ -27,7 +27,7 @@ class App extends React.Component {
 
   updateWidth() {
     const width = Math.max(window.innerWidth, 1000);
-    const productsPerPage = Math.floor((width - 100) / 170);
+    const productsPerPage = Math.floor((width - 120) / 190);
     this.setState(({ pageNumber, products }) => {
       const pages = Math.ceil(products.length / productsPerPage);
       if (pageNumber > pages) {
@@ -70,12 +70,6 @@ class App extends React.Component {
       return { pageNumber: pageNumber - 1 };
     });
   }
-
-  // handleClick(e) {
-  //   console.log(e);
-  //   // harvest id value from element
-  //   // navigate to the correct path
-  // }
 
   render() {
     const {

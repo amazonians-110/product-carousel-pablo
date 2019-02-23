@@ -1,15 +1,18 @@
 const express = require('express');
-const morgan = require('morgan');
+// const morgan = require('morgan');
 const cors = require('cors');
+const compression = require('compression');
 const router = require('./server/controllers/router.js');
 
 const PORT = 3007;
 
 const app = express();
 
-app.use(morgan('tiny'));
+// app.use(morgan('tiny'));
 
 app.use(cors());
+
+app.use(compression());
 
 app.use(express.static(`${__dirname}/dist`));
 
@@ -27,4 +30,4 @@ app.get('*', (req, res) => {
   res.sendFile(`${__dirname}/dist/index.html`);
 });
 
-app.listen(PORT);
+app.listen(PORT, console.log(`listening to ${PORT}`));

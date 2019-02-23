@@ -12,6 +12,29 @@ const starPoints = `M 9.000 13.000
   L 4.298 15.472
   L 9.000 13.000`;
 
+const starOutline = (
+  <path
+    d={starPoints}
+    fill="none"
+    stroke="#a8863c"
+    strokeWidth="1"
+  />
+);
+
+const gradient = (
+  <linearGradient id="star-fill" gradientTransform="rotate(90)">
+    <stop offset="25%" stopColor="#ffce00" />
+    <stop offset="100%" stopColor="#ffa700" />
+  </linearGradient>
+);
+
+const starFill = (
+  <path
+    d={starPoints}
+    fill="url(#star-fill)"
+  />
+);
+
 const halfStarPoints = `M 9.000 1.000
   L 6.649 5.764
   L 1.392 6.528
@@ -19,7 +42,12 @@ const halfStarPoints = `M 9.000 1.000
   L 4.298 15.472
   L 9.000 13.000`;
 
-// apply linear gradient to stars
+const halfFill = (
+  <path
+    d={halfStarPoints}
+    fill="url(#star-fill)"
+  />
+);
 
 const Rating = ({ avgReview }) => {
   const stars = [];
@@ -27,18 +55,9 @@ const Rating = ({ avgReview }) => {
   for (let i = 0; i < Math.floor(fullStars); i += 1) {
     stars.push(
       <svg height="20" width="20">
-        <defs>
-          <linearGradient id="star-fill" gradientTransform="rotate(90)">
-            <stop offset="25%" stopColor="#ffce00" />
-            <stop offset="100%" stopColor="#ffa700" />
-          </linearGradient>
-        </defs>
-        <path
-          d={starPoints}
-          fill="url(#star-fill"
-          stroke="#a8863c"
-          strokeWidth="1"
-        />
+        {gradient}
+        {starOutline}
+        {starFill}
       </svg>,
     );
   }
@@ -46,23 +65,9 @@ const Rating = ({ avgReview }) => {
   for (let i = 0; i < halfStars; i += 1) {
     stars.push(
       <svg height="20" width="20">
-        <defs>
-          <linearGradient id="star-fill" gradientTransform="rotate(90)">
-            <stop offset="25%" stopColor="#ffce00" />
-            <stop offset="100%" stopColor="#ffa700" />
-          </linearGradient>
-        </defs>
-        <path
-          d={halfStarPoints}
-          fill="url(#star-fill"
-        />
-        <path
-          d={starPoints}
-          fill="none"
-          stroke="#a8863c"
-          strokeWidth="1"
-
-        />
+        {gradient}
+        {starOutline}
+        {halfFill}
       </svg>,
     );
   }
@@ -70,12 +75,7 @@ const Rating = ({ avgReview }) => {
   for (let i = 0; i < emptyStars; i += 1) {
     stars.push(
       <svg height="20" width="20">
-        <path
-          d={starPoints}
-          fill="none"
-          stroke="#a8863c"
-          strokeWidth="1"
-        />
+        {starOutline}
       </svg>,
     );
   }

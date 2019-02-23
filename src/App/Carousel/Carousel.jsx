@@ -3,16 +3,18 @@ import React from 'react';
 import propTypes from 'prop-types';
 import Product from './Product/Product.jsx';
 import Button from './Button/Button.jsx';
-import carousel from './Carousel.css';
+import { product_list, container } from './Carousel.css';
 
 /* click */
 const Carousel = ({ products, scroll }) => (
-  <div className={carousel.container}>
+  <div className={container}>
 
     <Button scroll={scroll} direction="left" />
-    {products
-      ? products.map(product => <Product key={product.id} product={product} />)
-      : null }
+    <div className={product_list}>
+      {products
+        ? products.map(product => <Product key={product.id} product={product} />)
+        : null }
+    </div>
     <Button scroll={scroll} direction="right" />
   </div>
 );
