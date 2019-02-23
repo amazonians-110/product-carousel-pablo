@@ -3,10 +3,11 @@ import propTypes from 'prop-types';
 import product from './Product.css';
 import Rating from './Rating/Rating.jsx';
 
-const primeSprite = 'https://m.media-amazon.com/images/G/01/AmazonServices/Site/US/Product/FBA/small-and-light-prime-logo._V509606070_.png';
+const primeSprite = 'https://res.cloudinary.com/dcywbu46z/image/upload/h_20,f_auto/v1550951658/amazon-FEC/prime.png';
+
+const concatUrl = id => `https://res.cloudinary.com/dcywbu46z/image/upload/w_160,h_160,f_auto/v1550899094/amazon-FEC/item-${id}.jpg`;
 
 const Product = ({
-  // click,
   product: {
     id, name, image, avgReview, price, isPrime, reviewCount,
   },
@@ -14,7 +15,7 @@ const Product = ({
   <div className={product.column}>
     <a href={`/products/${id}`}>
       <div className={product.ad_image}>
-        <div style={{ background: `url(${image}`, backgroundSize: 'cover', height: '160px' }} alt="product was here" />
+        <div style={{ background: `url(${concatUrl(id)}`, backgroundSize: 'cover', height: '160px' }} alt="product was here" />
       </div>
     </a>
     <a href={`/products/${id}`} className={product.name}>{name}</a>

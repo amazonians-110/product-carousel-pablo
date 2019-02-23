@@ -1,5 +1,4 @@
 **/node_modules
-**/example_proxy
 **/__snapshots__
 **/dist
 **config.js

@@ -4,11 +4,10 @@
   "description": "Visual and functional clone of the amazon product ad carousel",
   "main": "index.js",
   "scripts": {
-    "postinstall": "webpack -p && cp ./src/index.html ./dist/index.html",
     "seed": "node server/helpers/seed.js && echo 'database built'",
     "dev-build": "mkdir dist; cp ./src/index.html ./dist/index.html && webpack -d --watch",
-    "start": "nodemon",
-    "build": "webpack -p && cp ./src/index.html ./dist/index.html && node index.js",
+    "dev-start": "nodemon",
+    "start": "webpack -p && cp ./src/index.html ./dist/index.html && node index.js",
     "test": "jest"
   },
   "author": "Pablo Frias",
