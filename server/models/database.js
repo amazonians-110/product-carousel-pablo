@@ -14,21 +14,26 @@ const convertSQLtoJS = (product) => {
   return jsProduct;
 };
 
-const randomRelations = (num, limit) => {
-  const results = [];
-  while (results.length < num) {
-    const rand = Math.floor(Math.random() * limit);
-    if (!results.includes(rand)) {
-      results.push(rand);
-    }
-  }
-  return results;
-};
+// const randomRelations = (num, limit) => {
+//   const results = [];
+//   while (results.length < num) {
+//     const rand = Math.floor(Math.random() * limit);
+//     if (!results.includes(rand)) {
+//       results.push(rand);
+//     }
+//   }
+//   return results;
+// };
 
 module.exports = {
   fetchRelated: (id) => {
-    const relatedProducts = randomRelations(15, 100);
-    return database.select('*').from('products').whereIn('product_id', relatedProducts)
-      .then(data => convertSQLtoJS(data));
+    const subquery = database.select('related_id').from('products_index')
+      .where('product_id', id);
+    // subquery.then(data => console.log(data));
+    // database('products').select('product_id').then(data => console.log(data));
+    return database('products')
+      .whereIn('product_id', subquery)
+      .then(data => data.map(product => convertSQLtoJS(product)))
+      .catch(err => console.log(err));
   },
 };

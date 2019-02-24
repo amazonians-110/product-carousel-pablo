@@ -1,10 +1,19 @@
 const express = require('express');
+<<<<<<< HEAD
+=======
+const morgan = require('morgan');
+>>>>>>> feature-junctions
 const cors = require('cors');
 const compression = require('compression');
 const router = require('./server/controllers/router.js');
 
 const app = express();
 
+<<<<<<< HEAD
+=======
+app.use(morgan('tiny'));
+
+>>>>>>> feature-junctions
 app.use(cors());
 
 app.use(compression());

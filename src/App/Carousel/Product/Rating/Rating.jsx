@@ -56,8 +56,8 @@ const Rating = ({ avgReview }) => {
     stars.push(
       <svg height="20" width="20">
         {gradient}
-        {starOutline}
         {starFill}
+        {starOutline}
       </svg>,
     );
   }
@@ -66,8 +66,8 @@ const Rating = ({ avgReview }) => {
     stars.push(
       <svg height="20" width="20">
         {gradient}
-        {starOutline}
         {halfFill}
+        {starOutline}
       </svg>,
     );
   }
