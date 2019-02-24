@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import Carousel from './Carousel/Carousel.jsx';
 import app from './App.css';
-// import { section, header, pages, title } from './App.css';
 
 class App extends React.Component {
   constructor(props) {
