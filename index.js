@@ -1,5 +1,5 @@
 const express = require('express');
-// const morgan = require('morgan');
+const morgan = require('morgan');
 const cors = require('cors');
 const compression = require('compression');
 const router = require('./server/controllers/router.js');
@@ -8,7 +8,7 @@ const PORT = 3007;
 
 const app = express();
 
-// app.use(morgan('tiny'));
+app.use(morgan('tiny'));
 
 app.use(cors());
 

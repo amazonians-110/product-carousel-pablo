@@ -25,7 +25,7 @@ database.schema.dropTableIfExists('products')
       product.is_prime = faker.random.boolean();
       product.category = faker.commerce.department();
       product.manufacturer = faker.company.companyName();
-      product.image = `https://s3-us-west-1.amazonaws.com/amazon-product-carousel-images/products/item-${i + 1}.png`;
+      // product.image = `https://s3-us-west-1.amazonaws.com/amazon-product-carousel-images/products/item-${i + 1}.png`;
       rows.push(product);
     }
     return database('products').insert(rows);

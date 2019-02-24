@@ -37,11 +37,9 @@ const Product = ({
 );
 
 Product.propTypes = {
-  // click: propTypes.func.isRequired,
   product: propTypes.shape({
     id: propTypes.number.isRequired,
     name: propTypes.string.isRequired,
-    image: propTypes.string.isRequired,
     avgReview: propTypes.string.isRequired,
     price: propTypes.string.isRequired,
     isPrime: propTypes.bool.isRequired,

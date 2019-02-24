@@ -43,12 +43,14 @@ class App extends React.Component {
       };
     });
   }
+  // `http://ec2-18-217-74-134.us-east-2.compute.amazonaws.com/api/products/${productNumber || 11}`
 
   fetchProducts() {
     const { pathname } = window.location;
     const productNumber = pathname.split('/').pop();
-    return axios.get(`http://ec2-18-217-74-134.us-east-2.compute.amazonaws.com/api/products/${productNumber || 11}`)
+    return axios.get(`http://ec2-18-217-74-134.us-east-2.compute.amazonaws.com/api/products/${productNumber}`)
       .then(({ data }) => {
+        console.log(data);
         this.setState({ products: data });
       })
       .catch(() => {
@@ -88,7 +90,10 @@ class App extends React.Component {
           </h4>
         </header>
         <Carousel
-          products={products.slice(firstIndex, lastIndex)}
+          products={products
+            ? products.slice(firstIndex, lastIndex)
+            : []
+          }
           click={this.handleClick}
           scroll={this.handleScroll}
         />
