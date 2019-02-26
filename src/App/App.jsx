@@ -49,7 +49,6 @@ class App extends React.Component {
     const productNumber = pathname.split('/').pop();
     return axios.get(`http://ec2-18-217-74-134.us-east-2.compute.amazonaws.com/api/products/${productNumber}`)
       .then(({ data }) => {
-        console.log(data);
         this.setState({ products: data });
       })
       .catch(() => {
